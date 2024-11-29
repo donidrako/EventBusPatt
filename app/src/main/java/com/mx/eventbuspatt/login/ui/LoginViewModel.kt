@@ -5,36 +5,64 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+/**
+ * ViewModel para gestionar la lógica y el estado de la pantalla de inicio de sesión.
+ * Esta clase sigue el patrón de arquitectura MVVM, donde actúa como el puente
+ * entre la UI (Vista) y la lógica de negocio.
+ */
+class LoginViewModel : ViewModel() {
 
-class LoginViewModel : ViewModel() { // la clase extiende de ViewModel()
-
+    // LiveData observable para el correo electrónico ingresado. La UI observa este valor para mostrarlo.
     private val _email = MutableLiveData<String>()
-    val email: LiveData<String> = _email //la variable de esta linea es de tipo  -> LiveData<String>
-    private val _password = MutableLiveData<String>()
-    val password: LiveData<String> =
-        _password //la variable de esta linea es de tipo  -> LiveData<String>
-    private val _loginEnbale = MutableLiveData<Boolean>(false)
-    val loginEnbale: MutableLiveData<Boolean> =
-        _loginEnbale
+    val email: LiveData<String> = _email
 
-    // PARAMETROS DE NETRADA password y usuario
+    // LiveData observable para la contraseña ingresada.
+    private val _password = MutableLiveData<String>()
+    val password: LiveData<String> = _password
+
+    // LiveData para habilitar o deshabilitar el botón de inicio de sesión, según la validación del correo y la contraseña.
+    private val _loginEnable = MutableLiveData<Boolean>(false)
+    val loginEnable: LiveData<Boolean> = _loginEnable
+
+    /**
+     * Actualiza los valores del correo electrónico y la contraseña e evalúa si el botón de inicio de sesión debe estar habilitado.
+     *
+     * @param email El correo electrónico ingresado por el usuario.
+     * @param password La contraseña ingresada por el usuario.
+     */
     fun onUserChange(email: String, password: String) {
-        //Siempore tendra elk ultimoi valoir del edit text
         _email.value = email
         _password.value = password
-        _loginEnbale.value = isValidEmail(email) && isValidPassword(password)
+        _loginEnable.value = isValidEmail(email) && isValidPassword(password)
     }
 
+    /**
+     * Valida si el correo electrónico es correcto.
+     *
+     * @param email El correo electrónico a validar.
+     * @return true si el correo electrónico es válido, false en caso contrario.
+     */
     private fun isValidEmail(email: String): Boolean =
         Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
+    /**
+     * Valida si la contraseña es válida.
+     * La contraseña debe tener más de 6 caracteres, al menos una letra mayúscula,
+     * al menos un número y al menos un carácter especial.
+     *
+     * @param password La contraseña a validar.
+     * @return true si la contraseña cumple con los requisitos, false en caso contrario.
+     */
     private fun isValidPassword(password: String): Boolean = password.length > 6 &&
-            password.any { it.isUpperCase() } &&// valida que la contraseña cuente con una letra mayuscula
-            password.any { it.isDigit() } &&//valida que la contraseña cuente con un numero
-            password.any { "!@#$%^&*()-_+=<>?/{}|\\~`".contains(it) }//valida que la contraseña cuente con un carcater especial de la lista
+            password.any { it.isUpperCase() } && // Valida que la contraseña tenga al menos una letra mayúscula
+            password.any { it.isDigit() } && // Valida que la contraseña tenga al menos un número
+            password.any { "!@#$%^&*()-_+=<>?/{}|\\~`".contains(it) } // Valida que la contraseña tenga al menos un carácter especial
 
+    /**
+     * Método que se llama cuando el usuario selecciona el botón de inicio de sesión.
+     * Actualmente no tiene implementación.
+     */
     fun onLoginSelected() {
-
+        // Implementar la lógica para iniciar sesión aquí.
     }
-
 }
