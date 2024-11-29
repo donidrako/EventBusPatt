@@ -53,6 +53,20 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.1.0")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.0")
     implementation("androidx.activity:activity-compose:1.7.0")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    // ViewModel con extensiones de Kotlin
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+    // ViewModel para Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    // Guardar estados en ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2")
+
+    // Extensiones de ciclo de vida
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     // Otras dependencias de tu proyecto
 
     implementation(libs.androidx.core.ktx)
@@ -64,6 +78,8 @@ dependencies {
     implementation(libs.androidx.foundation.layout)
     implementation(libs.androidx.foundation.layout)
     implementation(libs.androidx.ui.test.android)
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

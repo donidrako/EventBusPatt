@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.mx.eventbuspatt.login.ui.LoginUi
+import com.mx.eventbuspatt.login.ui.LoginViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
    enableEdgeToEdge()
         setContent{
-       LoginUi()
+       LoginUi(viewModel = LoginViewModel())// Instancia de el View model en el main
         }
     }
 }
