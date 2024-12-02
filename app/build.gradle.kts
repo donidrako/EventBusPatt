@@ -34,9 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-viewBinding{
-    enable = true;
-}
+    viewBinding {
+        enable = true;
+    }
     buildFeatures {
         compose = true // Habilitar Compose
     }
@@ -67,7 +67,31 @@ dependencies {
 
     // Extensiones de ciclo de vida
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    // Otras dependencias de tu proyecto
+
+    // Material Design for Jetpack Compose
+    implementation("androidx.compose.material:material:1.5.3")
+// Material Icons
+    implementation("androidx.compose.material:material-icons-core:1.5.3")
+    implementation("androidx.compose.material:material-icons-extended:1.5.3")
+// Compose Foundation (for layouts, drawing, etc.)
+    implementation("androidx.compose.foundation:foundation:1.5.3")
+// Compose UI (core Compose UI functionality)
+    implementation("androidx.compose.ui:ui:1.5.3")
+// Tooling (for preview support in Android Studio)
+    implementation("androidx.compose.ui:ui-tooling:1.5.3")
+    debugImplementation("androidx.compose.ui:ui-tooling-preview:1.5.3")
+
+    // Dagger 2
+    annotationProcessor("com.google.dagger:dagger-compiler:2.44.2")
+    implementation("com.google.dagger:dagger:2.44.2")
+    implementation("com.google.dagger:dagger-android-support:2.44.2")
+    compileOnly("javax.annotation:jsr250-api:1.0")
+    implementation("javax.inject:javax.inject:1")
+    // Room database
+    implementation("androidx.room:room-runtime:2.2.5")
+    annotationProcessor("androidx.room:room-compiler:2.2.5")
+    testImplementation("androidx.room:room-testing:2.2.5")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
