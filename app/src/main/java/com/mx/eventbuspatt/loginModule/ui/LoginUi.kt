@@ -1,4 +1,4 @@
-package com.mx.eventbuspatt.login.ui
+package com.mx.eventbuspatt.loginModule.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

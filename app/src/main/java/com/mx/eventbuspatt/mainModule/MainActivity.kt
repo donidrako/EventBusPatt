@@ -1,13 +1,13 @@
-package com.mx.eventbuspatt
+package com.mx.eventbuspatt.mainModule
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.room.Room
-import com.mx.eventbuspatt.login.data.LoginDatabase
-import com.mx.eventbuspatt.login.ui.LoginUi
-import com.mx.eventbuspatt.login.ui.LoginViewModel
+import com.mx.eventbuspatt.loginModule.data.LoginDatabase
+import com.mx.eventbuspatt.loginModule.ui.LoginUi
+import com.mx.eventbuspatt.loginModule.ui.LoginViewModel
 
 class MainActivity : ComponentActivity() {
 

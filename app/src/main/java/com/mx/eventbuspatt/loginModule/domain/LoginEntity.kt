@@ -1,4 +1,4 @@
-package com.mx.eventbuspatt.login.domain
+package com.mx.eventbuspatt.loginModule.domain
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

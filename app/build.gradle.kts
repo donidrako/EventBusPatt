@@ -46,12 +46,16 @@ android {
     }
 }
 
+val retrofitVersion = "2.9.0"
+val koinVersion = "3.5.3"
 dependencies {
     // Dependencias principales de Compose
     implementation("androidx.compose.ui:ui:1.5.3")  // Versión coherente
     implementation("androidx.compose.material3:material3:1.1.0")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.3")  // Versión coherente
     implementation("androidx.activity:activity-compose:1.7.0")
+    // Koin for Android
+    implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
 
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
@@ -107,6 +111,10 @@ dependencies {
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.runtime.livedata)
 
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-scalars:$retrofitVersion")
     // Dependencias de prueba
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

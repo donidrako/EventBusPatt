@@ -1,12 +1,11 @@
-package com.mx.eventbuspatt.login.data
+package com.mx.eventbuspatt.loginModule.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.mx.eventbuspatt.login.domain.LoginEntity
+import com.mx.eventbuspatt.loginModule.domain.LoginEntity
 
 @Dao
 interface LoginDao {

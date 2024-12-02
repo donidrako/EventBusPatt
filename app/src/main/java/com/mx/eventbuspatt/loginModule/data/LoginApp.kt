@@ -1,4 +1,4 @@
-package com.mx.eventbuspatt.login.data
+package com.mx.eventbuspatt.loginModule.data
 
 import android.app.Application
 import androidx.room.Room

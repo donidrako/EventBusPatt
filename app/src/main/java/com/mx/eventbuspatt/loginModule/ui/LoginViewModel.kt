@@ -1,12 +1,11 @@
-package com.mx.eventbuspatt.login.ui
+package com.mx.eventbuspatt.loginModule.ui
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mx.eventbuspatt.login.data.LoginDao
-import com.mx.eventbuspatt.login.domain.LoginEntity
+import com.mx.eventbuspatt.loginModule.data.LoginDao
 import kotlinx.coroutines.launch
 
 /**
