@@ -4,14 +4,17 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.mx.eventbuspatt.login.data.LoginDao
+import com.mx.eventbuspatt.login.domain.LoginEntity
+import kotlinx.coroutines.launch
 
 /**
  * ViewModel para gestionar la lógica y el estado de la pantalla de inicio de sesión.
  * Esta clase sigue el patrón de arquitectura MVVM, donde actúa como el puente
  * entre la UI (Vista) y la lógica de negocio.
  */
-class LoginViewModel : ViewModel() {
-
+class LoginViewModel(private val repository: LoginDao) : ViewModel() {
     // LiveData observable para el correo electrónico ingresado. La UI observa este valor para mostrarlo.
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
@@ -63,6 +66,16 @@ class LoginViewModel : ViewModel() {
      * Actualmente no tiene implementación.
      */
     fun onLoginSelected() {
-        // Implementar la lógica para iniciar sesión aquí.
+        val email = _email.value ?: return
+        val password = _password.value ?: return
+
+        viewModelScope.launch {
+            val isValidUser = repository.validateLogin(email, password)
+            if (isValidUser) {
+                // Navegar a la siguiente pantalla
+            } else {
+                // Mostrar un mensaje de error
+            }
+        }
     }
 }

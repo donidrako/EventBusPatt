@@ -4,16 +4,27 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.room.Room
+import com.mx.eventbuspatt.login.data.AppDatabase
 import com.mx.eventbuspatt.login.ui.LoginUi
 import com.mx.eventbuspatt.login.ui.LoginViewModel
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-   enableEdgeToEdge()
-        setContent{
-       LoginUi(viewModel = LoginViewModel())// Instancia de el View model en el main
+
+        enableEdgeToEdge() // Llamar una sola vez
+
+        // Crear la base de datos y obtener el DAO
+        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "app-database").build()
+        val dao = db.loginDao()
+
+        val viewModel = LoginViewModel(dao)
+
+        setContent {
+            // Pasar el ViewModel al UI
+            LoginUi(viewModel = viewModel)
         }
     }
 }

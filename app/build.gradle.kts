@@ -47,12 +47,12 @@ android {
 }
 
 dependencies {
-
     // Dependencias principales de Compose
-    implementation("androidx.compose.ui:ui:1.5.0")
+    implementation("androidx.compose.ui:ui:1.5.3")  // Versión coherente
     implementation("androidx.compose.material3:material3:1.1.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.0")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.3")  // Versión coherente
     implementation("androidx.activity:activity-compose:1.7.0")
+
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
@@ -69,15 +69,18 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Material Design for Jetpack Compose
-    implementation("androidx.compose.material:material:1.5.3")
-// Material Icons
+    implementation("androidx.compose.material:material:1.5.3")  // Versión coherente
+    // Material Icons
     implementation("androidx.compose.material:material-icons-core:1.5.3")
     implementation("androidx.compose.material:material-icons-extended:1.5.3")
-// Compose Foundation (for layouts, drawing, etc.)
+
+    // Compose Foundation (for layouts, drawing, etc.)
     implementation("androidx.compose.foundation:foundation:1.5.3")
-// Compose UI (core Compose UI functionality)
-    implementation("androidx.compose.ui:ui:1.5.3")
-// Tooling (for preview support in Android Studio)
+
+    // Compose UI (core Compose UI functionality)
+    implementation("androidx.compose.ui:ui:1.5.3")  // Versión coherente
+
+    // Tooling (for preview support in Android Studio)
     implementation("androidx.compose.ui:ui-tooling:1.5.3")
     debugImplementation("androidx.compose.ui:ui-tooling-preview:1.5.3")
 
@@ -87,23 +90,24 @@ dependencies {
     implementation("com.google.dagger:dagger-android-support:2.44.2")
     compileOnly("javax.annotation:jsr250-api:1.0")
     implementation("javax.inject:javax.inject:1")
+
     // Room database
     implementation("androidx.room:room-runtime:2.2.5")
     annotationProcessor("androidx.room:room-compiler:2.2.5")
     testImplementation("androidx.room:room-testing:2.2.5")
 
-
+    // Librerías comunes
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.foundation.layout)
-    implementation(libs.androidx.foundation.layout)
-    implementation(libs.androidx.foundation.layout)
     implementation(libs.androidx.ui.test.android)
     implementation(libs.androidx.foundation)
     implementation(libs.androidx.runtime.livedata)
+
+    // Dependencias de prueba
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
